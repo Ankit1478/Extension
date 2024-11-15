@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Kuration AI",
+  "version": "1.0",
+  "description": "Extension to manage LinkedIn cookies",
+  "permissions": [
+    "cookies", 
+    "tabs", 
+    "storage",
+    "offscreen",
+    "https://www.linkedin.com/*",
+    "clipboardWrite"
+  ],
+    "host_permissions": [ 
+      "https://www.linkedin.com/*"//here we will write the permissions of the website that we want send data and scrape the data
+    ],
+    "icons":{
+      "16": "kuration.png",
+      "48": "kuration.png",
+     "128": "kuration.png"
+    },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self' https://apis.google.com https://www.gstatic.com https://www.googleapis.com https://securetoken.googleapis.com"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
