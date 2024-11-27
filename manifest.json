@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Kuration AI",
+  "name": "kuration Scraper",
   "version": "1.0",
   "description": "Extension to manage LinkedIn cookies",
   "permissions": [
@@ -8,11 +8,16 @@
     "tabs", 
     "storage",
     "offscreen",
-    "https://www.linkedin.com/*",
-    "clipboardWrite"
+    "clipboardWrite",
+    "activeTab" 
   ],
-    "host_permissions": [ 
-      "https://www.linkedin.com/*"//here we will write the permissions of the website that we want send data and scrape the data
+    "host_permissions": [
+      "*://*.kurational.com/*",
+      "*://*.kurational.com/*",
+      "http://*.kurationai.com/",
+      "https://app.kurationai.com/*",
+      "https://www.linkedin.com/*",
+       "https://app.kurationai.com/*"
     ],
     "icons":{
       "16": "kuration.png",
@@ -20,7 +25,10 @@
      "128": "kuration.png"
     },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self' https://apis.google.com https://www.gstatic.com https://www.googleapis.com https://securetoken.googleapis.com"
+    "extension_pages": "script-src 'self'; object-src 'self'; frame-src 'self' https://apis.google.com https://www.gstatic.com https://www.googleapis.com https://securetoken.googleapis.com",
+    "matches": ["https://app.kurationai.com/*"],
+    "js": ["logout-detection.js"],
+    "run_at": "document_start"
   },
   "background": {
     "service_worker": "background.js"
